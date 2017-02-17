@@ -1,0 +1,5 @@
+Initial global-scale perturbations are derived from S20RTS (Ritsema et al., 1999). From the S velocity perturbations, the P velocity perturbations are obtained by scaling, following Ritsema & van Heijst (2002). The scaling factor R=dvs/dvp increases linearly with depth, from R=1.25 at the surface to R=3.00 at the core-mantle boundary.
+
+To avoid gaps between the S20RTS perturbations and the crust, S20RTS is simply extended to the surface before the crust is added.
+
+Density variations as well as anisotropy are ignored.
