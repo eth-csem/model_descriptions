@@ -8,7 +8,7 @@ Density variations as well as anisotropy are ignored.
 
 - Gridded S20RTS --------------------
 
-To improve scalability for models with a large number of grid points, the CSEM uses a gridded version of S20RTS. The grid spacing is as follows:
+To improve scalability for models with a large number of grid points, the CSEM has the ability to use a gridded version of S20RTS. The grid spacing is as follows:
 
 d_deg=2.5*np.pi/180.0
 colats=np.arange(d_deg,np.pi,d_deg)
