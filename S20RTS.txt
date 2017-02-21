@@ -1,5 +1,35 @@
+- General ---------------------------
+
 Initial global-scale perturbations are derived from S20RTS (Ritsema et al., 1999). From the S velocity perturbations, the P velocity perturbations are obtained by scaling, following Ritsema & van Heijst (2002). The scaling factor R=dvs/dvp increases linearly with depth, from R=1.25 at the surface to R=3.00 at the core-mantle boundary.
 
 To avoid gaps between the S20RTS perturbations and the crust, S20RTS is simply extended to the surface before the crust is added.
 
 Density variations as well as anisotropy are ignored.
+
+- Gridded S20RTS --------------------
+
+To improve scalability for models with a large number of grid points, the CSEM uses a gridded version of S20RTS. The grid spacing is as follows:
+
+d_deg=2.5*np.pi/180.0
+colats=np.arange(d_deg,np.pi,d_deg)
+lons=np.arange(d_deg,2.0*np.pi,d_deg)
+rads_1=np.arange(3480.0,5480.0,20.0)
+rads_2=np.arange(5480.0,6350.0,10.0)
+rads=np.concatenate((rads_1,rads_2))
+
+Values are written to the file csemlib/data/s20rts/s20rts_gridded.dat in the following manner:
+
+fid=open('s20rts_gridded.dat','w')
+
+for rad in rads:
+    print rad
+    for colat in colats:
+        for lon in lons:
+            v=s20.eval(np.array([colat]),np.array([lon]),np.array([rad]))
+            fid.write(str(rad)+' '+str(colat)+' '+str(lon)+' '+str(v[0])+'\n')
+
+fid.close()
+
+The CSEM uses a quadratic interpolation laterally and a linear interpolation radially to put values onto arbitrary grid points.
+
+
