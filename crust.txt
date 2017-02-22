@@ -1,0 +1,7 @@
+The implementation of the crust is based on the global-scale surface wave inversion by Meier et al. (2007a,b). S velocity is scaled to P velocity and density, with slightly different scalings for oceanic and continental regions.
+
+The handling of topography is not optimal at the moment. Topography is simply added to the crustal thickness.
+
+Since the true crustal thickness is not known, a 25 % taper is applied, i.e. the crust is smeared into the mantle over a depth range that corresponds to 25 % of its local thickness.
+
+Crustal anisotropy is a continuation of upper-mantle anisotropy, which increases linearly with increasing radius, starting at 180 km depth.
