@@ -4,4 +4,11 @@ The handling of topography is not optimal at the moment. Topography is simply ad
 
 Since the true crustal thickness is not known, a 25 % taper is applied, i.e. the crust is smeared into the mantle over a depth range that corresponds to 25 % of its local thickness.
 
-Crustal anisotropy is a continuation of upper-mantle anisotropy, which increases linearly with increasing radius, starting at 180 km depth.
+Crustal anisotropy is a continuation of upper-mantle anisotropy, which increases linearly with increasing radius, starting at 180 km depth. It is implemented as follows: 
+
+(1) Since Meier et al. (2007) inverted both Love and Rayleigh phase velocity maps, their vs is interpreted as 0.5*(vsv+vsh). From this we obtain ash and vdv:
+
+vsv=vs-0.5*s_ani*(r-r_ani)
+vsh=vs+0.5*s_ani*(r-r_ani)
+
+with s_ani=0.0011 1/s and r_ani=6191 km (180 km depth).
